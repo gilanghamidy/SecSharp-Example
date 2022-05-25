@@ -1,0 +1,18 @@
+enclave {
+    from "SecSharp.edl" import *;
+    trusted {
+        public void SimpleEnclave_EnclaveHashWithArray_HMACSHA1(
+            [in, count=messages_count] SecSharpMessage* messages, size_t messages_count,
+            size_t instance,
+            [in, out, count=message_count] uint8_t* message_ptr, size_t message_count,
+            [in, out, count=digestOut_count] uint8_t* digestOut_ptr, size_t digestOut_count);
+        public void SimpleEnclave_EnclaveHashWithArray_SHA1(
+            [in, count=messages_count] SecSharpMessage* messages, size_t messages_count,
+            size_t instance,
+            [in, out, count=message_count] uint8_t* message_ptr, size_t message_count,
+            [in, out, count=digestOut_count] uint8_t* digestOut_ptr, size_t digestOut_count);
+        public void SimpleEnclave_EnclaveHashWithArray_ctor(
+            [in, count=messages_count] SecSharpMessage* messages, size_t messages_count,
+            [out] size_t* instance);
+    };
+};
